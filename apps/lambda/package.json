@@ -1,0 +1,30 @@
+{
+  "name": "lambda",
+  "version": "1.0.0",
+  "description": "uptime monitor lambda",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc && rm -rf dist/ && tsc && cp -LR node_modules dist/node_modules && rm -rf dist/node_modules/@types dist/node_modules/typescript",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "npm run build && cd dist && zip -r ../package.zip . * && cd .."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.3",
+    "@types/node-fetch": "^2.5.12",
+    "@types/request": "^2.48.7",
+    "typescript": "^4.4.2",
+    "tsconfig": "*",
+    "config": "*"
+  },
+  "engines": {"node": "^14.13.1"},
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.27.0",
+    "@aws-sdk/util-dynamodb": "^3.27.0",
+    "@aws-sdk/client-sns": "^3.27.0",
+    "got": "11.8.3"
+  }
+}
